@@ -8,119 +8,152 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var subscriptions = UILabel()
+    var subscribers = UILabel()
+    var posts = UILabel()
+    var numberOfSubscriptions = UILabel()
+    var numberOfSubscribers = UILabel()
+    var numberOfPosts = UILabel()
+    var aboutMe = UILabel()
+    var information = UILabel()
+    
+    var newPostButton = UIButton()
+    var exitButton = UIButton()
 
-    var dataButton = UIButton()
-    var cleanerButton = UIButton()
-    var nameLabel = UILabel()
-    var redNameLabel = UILabel()
-    var surnameLabel = UILabel()
-    var redSurnameLabel = UILabel()
-    var numberLabel = UILabel()
-    var redNumberLabel = UILabel()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataButtonCreate()
-        cleanerButtonCreate()
-        setNameLabel()
-        setRedNameLabel()
-        setSurnameLabel()
-        setRedSurnameLabel()
-        setNumberLabel()
-        setRedNumberLabel()
+        createSubscriptions()
+        createSubscribers()
+        createPosts()
+        createNumberOfSubscriptions()
+        createNumberOfSubscribers()
+        createNumberOfPosts()
+        createAboutMe()
+        createInformation()
+        
+        createNewPost()
+        createExitButton()
+    }
+    
+    func createSubscriptions() {
+        
+        subscriptions.text = "Подписок"
+        subscriptions.textColor = .black
+        subscriptions.numberOfLines = 0
+        subscriptions.font = UIFont.systemFont(ofSize: 15, weight:.black)
+        subscriptions.frame = CGRect(x: 30, y: 200, width: 100, height: 50)
+        
+        view.addSubview(subscriptions)
+    }
+    
+    func createSubscribers() {
+        let width = view.frame.size.width
+        
+        subscribers.text = "Подписчиков"
+        subscribers.textColor = .black
+        subscribers.numberOfLines = 0
+        subscribers.font = UIFont.systemFont(ofSize: 15, weight: .black)
+        subscribers.frame = CGRect(x: (width / 2) - 55, y: 200, width: 120, height: 50)
+        
+        view.addSubview(subscribers)
+    }
+    
+    func createPosts() {
+        let widht = view.frame.size.width
+        
+        posts.text = "Постов"
+        posts.textColor = .black
+        posts.numberOfLines = 0
+        posts.font = UIFont.systemFont(ofSize: 15, weight: .black)
+        posts.frame = CGRect(x: widht - 100 , y: 200, width: 70, height: 50)
+        
+        view.addSubview(posts)
+    }
+    
+    func createNumberOfSubscriptions() {
+        
+        numberOfSubscriptions.text = "39"
+        numberOfSubscriptions.textColor = .black
+        numberOfSubscriptions.numberOfLines = 0
+        numberOfSubscriptions.font = UIFont.systemFont(ofSize: 20)
+        numberOfSubscriptions.frame = CGRect(x: 60 , y: 230, width: 30, height: 50)
+        
+        view.addSubview(numberOfSubscriptions)
+    }
+    
+    func createNumberOfSubscribers() {
+        let width = view.frame.size.width
+        
+        numberOfSubscribers.text = "364"
+        numberOfSubscribers.textColor = .black
+        numberOfSubscribers.numberOfLines = 0
+        numberOfSubscribers.font = .systemFont(ofSize: 20)
+        numberOfSubscribers.frame = CGRect(x: (width / 2) - 15, y: 230, width: 40, height: 50)
+        
+        view.addSubview(numberOfSubscribers)
+    }
+    
+    func createNumberOfPosts() {
+        let width = view.frame.size.width
+        
+        numberOfPosts.text = "104"
+        numberOfPosts.textColor = .black
+        numberOfPosts.numberOfLines = 0
+        numberOfPosts.font = .systemFont(ofSize: 20)
+        numberOfPosts.frame = CGRect(x: width - 90, y: 230, width: 40, height: 50)
+        
+        view.addSubview(numberOfPosts)
         
     }
-
-    func dataButtonCreate() {
+    
+    func createAboutMe() {
+        aboutMe.text = "О себе"
+        aboutMe.textColor = .black
+        aboutMe.numberOfLines = 0
+        aboutMe.font = .systemFont(ofSize: 15, weight: .black)
+        aboutMe.frame = CGRect(x: 30, y: 370, width: 100, height: 50)
+        
+        view.addSubview(aboutMe)
+    }
+    
+    func createInformation() {
+        let width = view.frame.size.width
+        
+        
+        information.text = "Меня зовут Максим. Я живу в прекрасном городе - Санкт-Петербурге. Люблю ездить на автомобиле под старые песни (например 'Englishman In New-York' Sting)."
+        information.textColor = .black
+        information.numberOfLines = 0
+        information.font = .systemFont(ofSize: 15)
+        information.frame = CGRect(x: 30, y: 400, width: width - 60, height: 100)
+        
+        view.addSubview(information)
+    }
+    
+    func createNewPost() {
+        let width = view.frame.size.width
+        
+        newPostButton.setTitle("Добавить пост", for: .normal)
+        newPostButton.setTitleColor(.white, for: .normal)
+        newPostButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .black)
+        newPostButton.backgroundColor = .black
+        newPostButton.layer.cornerRadius = 20
+        newPostButton.frame = CGRect(x: 30, y: 300, width: width - 60, height: 50)
+        
+        view.addSubview(newPostButton)
+    }
+    
+    func createExitButton() {
         let width = view.frame.size.width
         let height = view.frame.size.height
         
-        dataButton.setTitle("Добавить данные", for: .normal)
-        dataButton.setTitleColor(.white, for: .normal)
-        dataButton.backgroundColor = .black
-        dataButton.layer.cornerRadius = 20
-        dataButton.frame = CGRect(x: 30, y: height - 200, width: width - 60, height: 50)
+        exitButton.setTitle("Выйти", for: .normal)
+        exitButton.setTitleColor(.blue, for: .normal)
+        exitButton.frame = CGRect(x: 30, y: height - 100, width: width - 60, height: 50)
         
-        view.addSubview(dataButton)
+        view.addSubview(exitButton)
     }
     
-    func cleanerButtonCreate() {
-        let width = view.frame.size.width
-        let height = view.frame.size.height
-        
-        cleanerButton.setTitle("Очистить данные", for: .normal)
-        cleanerButton.setTitleColor(.blue, for: .normal)
-        cleanerButton.backgroundColor = .white
-        cleanerButton.layer.cornerRadius = 20
-        cleanerButton.frame = CGRect(x: 30, y: height - 150, width: width - 60, height: 50)
-        
-        view.addSubview(cleanerButton)
-    }
     
-    func setNameLabel() {
-
-        nameLabel.text = "Имя:"
-        nameLabel.textColor = .black
-        nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        nameLabel.numberOfLines = 0
-        nameLabel.frame = CGRect(x: 30, y: 100, width: 200, height: 50)
-        
-        
-        view.addSubview(nameLabel)
-    }
-    
-    func setRedNameLabel() {
-        
-        redNameLabel.text = "Максим"
-        redNameLabel.textColor = .red
-        redNameLabel.numberOfLines = 0
-        redNameLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        redNameLabel.frame = CGRect(x: 85, y: 100, width: 200, height: 50)
-        
-        view.addSubview(redNameLabel)
-    }
-    
-    func setSurnameLabel() {
-        
-        surnameLabel.text = "Фамилия:"
-        surnameLabel.textColor = .black
-        surnameLabel.numberOfLines = 0
-        surnameLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        surnameLabel.frame = CGRect(x: 30, y: 150, width: 200, height: 50)
-        
-        view.addSubview(surnameLabel)
-    }
-    
-    func setRedSurnameLabel() {
-        redSurnameLabel.text = "Кудрявцев"
-        redSurnameLabel.textColor = .red
-        redSurnameLabel.numberOfLines = 0
-        redSurnameLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        redSurnameLabel.frame = CGRect(x: 140, y: 150, width: 200, height: 50)
-        
-        view.addSubview(redSurnameLabel)
-    }
-    
-    func setNumberLabel() {
-        numberLabel.text = "Номер потока:"
-        numberLabel.textColor = .black
-        numberLabel.numberOfLines = 0
-        numberLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        numberLabel.frame = CGRect(x: 30, y: 200, width: 200, height: 50)
-        
-        view.addSubview(numberLabel)
-    }
-    
-    func setRedNumberLabel() {
-        redNumberLabel.text = "ios 9"
-        redNumberLabel.textColor = .red
-        redNumberLabel.numberOfLines = 0
-        redNumberLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        redNumberLabel.frame = CGRect(x: 190, y: 200, width: 200, height: 50)
-        
-        view.addSubview(redNumberLabel)
-    }
 
 }
 
