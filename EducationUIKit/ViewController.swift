@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     lazy var tableView: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.separatorStyle = .none
+        $0.backgroundColor = .clear
         $0.dataSource = self
         $0.register(InformationPost.self, forCellReuseIdentifier: InformationPost.id)
         return $0
