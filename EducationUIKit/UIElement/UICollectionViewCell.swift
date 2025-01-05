@@ -23,6 +23,7 @@ class PostCellView: UICollectionViewCell {
     lazy var mainPhoto: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
         return $0
     }(UIImageView())
     
@@ -60,11 +61,7 @@ class PostCellView: UICollectionViewCell {
     }
     
     func setupConstraint() {
-        
-        let photoWidth = UIScreen.main.bounds.width - 100
-        let mainPhotoRatio = mainPhoto.image?.getRatio() ?? 1
-        let imageHeight = photoWidth * mainPhotoRatio
-        
+
         NSLayoutConstraint.activate([
             photo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             photo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -78,8 +75,7 @@ class PostCellView: UICollectionViewCell {
             mainPhoto.topAnchor.constraint(equalTo: photo.bottomAnchor, constant: 20),
             mainPhoto.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             mainPhoto.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            mainPhoto.widthAnchor.constraint(equalToConstant: photoWidth),
-            mainPhoto.heightAnchor.constraint(equalToConstant: imageHeight),
+            mainPhoto.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 100),
             
             vStack.topAnchor.constraint(equalTo: mainPhoto.bottomAnchor, constant: 10),
             vStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
